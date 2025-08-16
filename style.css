@@ -1,39 +1,66 @@
-:root {
-  --h: 35; /* teinte brun/orangé pour rappeler Carhartt */
-  --s: 70%;
-  --bg: hsl(var(--h) var(--s) 98%);
-  --surface: hsl(var(--h) 40% 100%);
-  --text: hsl(30 15% 15%);
-  --muted: hsl(30 12% 40%);
-  --primary: hsl(35 70% 45%);
-  --primary-600: hsl(35 70% 38%);
-  --border: hsl(35 20% 85%);
-  --radius: 1rem;
-  --shadow: 0 10px 25px rgb(0 0 0 / .05);
-  --container: clamp(960px, 80vw, 1200px);
-  --space: clamp(1rem, 1vw + .75rem, 1.5rem);
+/* === Fond global === */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+  line-height: 1.6;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: hsl(30 15% 8%);
-    --surface: hsl(30 12% 12%);
-    --text: hsl(0 0% 98%);
-    --muted: hsl(30 12% 65%);
-    --primary: hsl(35 70% 55%);
-    --primary-600: hsl(35 70% 48%);
-    --border: hsl(30 12% 20%);
-    --shadow: 0 10px 25px rgb(0 0 0 / .35);
+/* === Header === */
+.site-header {
+  background: #000;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+.site-header h1 {
+  margin: 0;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+/* === Layout === */
+.container {
+  width: min(100% - 2rem, 1100px);
+  margin-inline: auto;
+}
+.stack {
+  display: grid;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* === Hero === */
+.hero {
+  text-align: center;
+  padding: 2rem 0;
+}
+.hero .lead {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* === Grilles & cartes === */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 700px) {
+  .grid.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-
-/* Reset & base */
-*, *::before, *::after { box-sizing: border-box; }
-* { margin: 0; }
-body {
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  color: var(--text);
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.card h3 {
+  margin-
   background: var(--bg);
 }
 .container { width: min(100% - 2rem, var(--container)); margin-inline: auto; }
