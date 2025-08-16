@@ -7,31 +7,33 @@ body {
   line-height: 1.6;
 }
 
-/* === Header avec logo box === */
+/* === Header avec logo premium === */
 .site-header {
   display: flex;
   justify-content: center;
   padding: 2rem 0;
-  background: transparent; /* pas d’impact sur le reste */
+  background: transparent;
 }
 
 .logo-box {
-  background: #000;          /* fond noir */
-  padding: 1rem 2rem;
-  border-radius: 1.5rem;     /* arrondi */
+  background: #000;          
+  padding: 1.8rem 3.5rem;      /* cadre généreux */
+  border-radius: 2.2rem;       /* angles arrondis */
   display: inline-block;
-}
-.logo-box h1 {
-  margin: 0;
-  color: #fff;               /* texte blanc */
-  font-family: 'Orbitron', sans-serif; /* police spéciale */
-  font-size: 2.5rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  box-shadow: 0 8px 20px rgba(100, 100, 100, 0.3); /* ombre grise subtile */
 }
 
-/* === Layout === */
+.logo-box h1 {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #fff;                  /* texte blanc */
+}
+
+/* === Layout général === */
 .container {
   width: min(100% - 2rem, 1100px);
   margin-inline: auto;
@@ -83,3 +85,8 @@ footer {
   color: #666;
   border-top: 1px solid #ddd;
 }
+
+/* === Utilitaires === */
+.mt-1 { margin-top: .5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
