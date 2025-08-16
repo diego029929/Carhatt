@@ -33,6 +33,44 @@ body {
   color: #fff;
 }
 
+/* === Barre de recherche === */
+.search-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.search-box {
+  background: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 3rem;                  /* très arrondi */
+  display: flex;
+  align-items: center;
+  width: 80%;                            /* proche de la bannière */
+  max-width: 1200px;
+  box-shadow: 0 6px 15px rgba(100,100,100,0.2); /* ombre subtile */
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+}
+
+.search-box button {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 0.6rem 0.8rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
 /* === Layout général === */
 .container {
   width: min(100% - 2rem, 1100px);
