@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carhartt — Starter</title>
+  <meta name="description" content="Starter HTML + CSS moderne et responsive inspiré de Carhartt." />
+  <link rel="icon" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Lien d'évitement pour l'accessibilité -->
+  <a href="#contenu" class="visually-hidden-focusable">Aller au contenu</a>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="Accueil">
+        <span class="brand-logo" aria-hidden="true">C</span>
+        <span>Carhartt</span>
+      </a>
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="#features">Produits</a>
+        <a href="#apropos">Notre histoire</a>
+        <a href="#contact" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu" class="container stack">
+    <!-- Section Hero -->
+    <section class="hero stack">
+      <h1>Carhartt — Style robuste & intemporel ✨</h1>
+      <p class="lead">Découvrez un design moderne et minimaliste inspiré par l’univers workwear de Carhartt.</p>
+      <div class="actions">
+        <a class="btn primary" href="#features">Voir les produits</a>
+        <a class="btn ghost" href="#apropos">En savoir plus</a>
+      </div>
+    </section>
+
+    <!-- Section Features -->
+    <section id="features" class="stack">
+      <h2>Produits phares</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Vestes</h3>
+          <p>Vestes durables et résistantes, adaptées à toutes les saisons.</p>
+        </article>
+        <article class="card">
+          <h3>Pantalons</h3>
+          <p>Workwear robuste et stylé, pensé pour durer.</p>
+        </article>
+        <article class="card">
+          <h3>Accessoires</h3>
+          <p>Casquettes, sacs et plus pour compléter votre look Carhartt.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Aside -->
+    <aside class="tip card">
+      <strong>Astuce :</strong> personnalisez les couleurs dans <code>:root</code> de <code>style.css</code> pour matcher la palette Carhartt.
+    </aside>
+
+    <!-- Section À propos -->
+    <section id="apropos" class="stack">
+      <h2>Notre histoire</h2>
+      <p>Carhartt est synonyme de robustesse et d’authenticité depuis plus de 100 ans. Ce starter s’inspire de cet esprit intemporel.</p>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="stack">
+      <h2>Contact</h2>
+      <p class="mt-1">Un formulaire arrivera bientôt. En attendant, contactez-nous directement.</p>
+      <div class="mt-2">
+        <a class="btn primary" href="mailto:contact@carhartt.com">Écrire</a>
+        <a class="btn ghost" href="#">Prendre RDV</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <small>© <span id="year"></span> Carhartt. Tous droits réservés.</small>
+      <div class="menu">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
