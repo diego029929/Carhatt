@@ -1,25 +1,33 @@
 /* === Fond global === */
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: #222;
   background: linear-gradient(to bottom, #ffffff, #f9f9f9);
   line-height: 1.6;
 }
 
-/* === Header === */
+/* === Header avec logo box === */
 .site-header {
-  background: #fff;              
-  text-align: center;            
+  display: flex;
+  justify-content: center;
   padding: 2rem 0;
-  border-bottom: 2px solid #000; 
+  background: transparent; /* pas d’impact sur le reste */
 }
-.site-header h1 {
+
+.logo-box {
+  background: #000;          /* fond noir */
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;     /* arrondi */
+  display: inline-block;
+}
+.logo-box h1 {
   margin: 0;
-  color: #000;
-  font-size: 3rem;               
-  font-weight: 800;              /* bien gras mais moderne */
-  letter-spacing: 0.05em;        /* moins espacé */
+  color: #fff;               /* texte blanc */
+  font-family: 'Orbitron', sans-serif; /* police spéciale */
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
