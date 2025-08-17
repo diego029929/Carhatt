@@ -161,46 +161,46 @@ Contact: info@carhartt-wip.com
     </div>
   </main>
   
-  <script>
-    // Slider (déjà existant)
-    document.addEventListener('DOMContentLoaded', () => {
-      const slides = document.querySelector('.slides');
-      const images = slides.querySelectorAll('img');
-      let index = 0;
-      let startX = 0;
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelector('.slides');
+    const images = slides.querySelectorAll('img');
+    let index = 0;
+    let startX = 0;
 
-      slides.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-      });
+    // Slider tactile
+    slides.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
 
-      slides.addEventListener('touchmove', e => {
-        const moveX = e.touches[0].clientX;
-        const diff = moveX - startX;
-        slides.style.transform = `translateX(${ -index * 100 + diff / slides.clientWidth * 100 }%)`;
-      });
+    slides.addEventListener('touchmove', e => {
+      const moveX = e.touches[0].clientX;
+      const diff = moveX - startX;
+      slides.style.transform = `translateX(${ -index * 100 + diff / slides.clientWidth * 100 }%)`;
+    });
 
-      slides.addEventListener('touchend', e => {
-        const endX = e.changedTouches[0].clientX;
-        const diff = endX - startX;
-        if (diff < -50 && index < images.length - 1) index++;
-        if (diff > 50 && index > 0) index--;
-        slides.style.transition = 'transform 0.3s ease';
-        slides.style.transform = `translateX(-${index * 100}%)`;
-        setTimeout(() => slides.style.transition = 'none', 300);
-      });
+    slides.addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = endX - startX;
+      if (diff < -50 && index < images.length - 1) index++;
+      if (diff > 50 && index > 0) index--;
+      slides.style.transition = 'transform 0.3s ease';
+      slides.style.transform = `translateX(-${index * 100}%)`;
+      setTimeout(() => slides.style.transition = 'none', 300);
+    });
 
-      // Description toggle
-      const toggle = document.querySelector('.description-toggle');
-      const descText = document.querySelector('.description-text');
-      const arrow = document.querySelector('.arrow');  
-      
+    // --- Toggle Description + Tableau ---
+    const toggle = document.querySelector('.description-toggle');
+    const descText = document.querySelectorAll('.description-text'); // ✅ tous les éléments
+    let open = false;
+
+    toggle.addEventListener('click', () => {
+      open = !open;
       descText.forEach(el => {
-          el.style.display = el.style.display === 'block' ? 'none' : 'block';
-        });
-        arrow.classList.toggle('open');
+        el.style.display = open ? 'block' : 'none';
       });
     });
-  </script>
-
+  });
+</script>
 </body>
-</html>
+</html> 
