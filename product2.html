@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Duck Helston Jacket</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary-color: #1e3a8a;
@@ -16,13 +20,13 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
+      line-height: 1.7;
       padding: 20px;
     }
 
@@ -45,41 +49,103 @@
     .slides img {
       width: 100%;
       flex-shrink: 0;
+      border-radius: 20px;
     }
 
     .article-info h2 {
       font-size: 2rem;
-      color: black;
-      margin-bottom: 15px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--primary-color);
     }
 
-    .description-toggle {
-      font-size: 1.2rem;
-      color: black;
+    /* Toggle description */
+    .toggle {
+      font-size: 1.3rem;
+      font-weight: 500;
       cursor: pointer;
       margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
     }
 
-    .description-text {
+    .arrow {
+      transition: transform 0.3s ease;
+      font-size: 1.2rem;
+    }
+    .arrow.open {
+      transform: rotate(90deg);
+    }
+
+    .toggle-content {
       display: none;
       font-size: 1rem;
+      margin-bottom: 30px;
     }
-/* Tableau des tailles */
+
+    /* Titre élégant */
+    .sizes-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      text-align: center;
+      color: var(--primary-color);
+      letter-spacing: 1px;
+    }
+
+    /* Tableau élégant */
+    .size-wrapper {
+      overflow-x: auto;
+    }
+
     .size-table {
-      width: 100%;
+      min-width: 400px;
       border-collapse: collapse;
-      margin-top: 20px;
+      margin: 0 auto 40px auto;
       background: white;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     }
-      
+
+    .size-table th {
+      padding: 16px;
+      text-align: center;
+      background: var(--primary-color);
+      color: white;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .size-table td {
+      padding: 14px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .size-table tr:nth-child(even) {
+      background: #f9fafb;
+    }
+
+    .size-table tr:hover td {
+      background: var(--secondary-color);
+      color: white;
+      transition: 0.3s ease;
+    }
+
     @media (max-width: 768px) {
       .article-info h2 {
         font-size: 1.6rem;
       }
-      
+      .sizes-title {
+        font-size: 1.3rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -97,110 +163,69 @@
     <div class="article-info">
       <h2>Duck Helston Jacket Sky</h2>
 
-      <div class="description-section">
-        <div class="description-toggle">Description</div>
-        <p class="description-text">
-          La veste camouflage 'Duck Helston' est confectionnée en denim de coton épais qui a été teint en pièce pour révéler une configuration de couleurs complexe et un toucher plus doux. Non doublée, elle présente une base et des poignets ajustables et des coutures en triple point. Le Square Label en cuir artificiel est cousu sur la poitrine.
-100 % coton (biologique, denim Maitland Camo Duck, 13.5 oz)
-Triple point
-Base et poignets ajustables
-Deux poches poitrine boutonnées
-Square Label en cuir artificiel
-Adresse du fabricant:
-Work in Progress Textilhandels GmbH
-Hegenheimer Strasse 16
-79576 Weil am Rhein
-Allemagne
-Contact: info@carhartt-wip.com
-        </p>
-
-       <!-- Tableau des tailles -->
-        <table class="size-table description-text">
-          <thead>
-            <tr>
-              <th>TAILLE</th>
-              <th>XS</th>
-              <th>S</th>
-              <th>M</th>
-              <th>L</th>
-              <th>XL</th>
-              <th>XXL</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Tour de poitrine (cm)</td>
-              <td>82-86</td>
-              <td>87-92</td>
-              <td>93-98</td>
-              <td>99-104</td>
-              <td>105-110</td>
-              <td>111-118</td>
-            </tr>
-            <tr>
-              <td>Tour de taille (cm)</td>
-              <td>70-74</td>
-              <td>75-80</td>
-              <td>81-86</td>
-              <td>87-92</td>
-              <td>93-98</td>
-              <td>99-106</td>
-            </tr>
-            <tr>
-              <td>Longueur de manche (cm)</td>
-              <td>60</td>
-              <td>61</td>
-              <td>62</td>
-              <td>63</td>
-              <td>64</td>
-              <td>65</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Bloc Description -->
+      <div class="toggle-section">
+        <div class="toggle">
+          <span>Description</span>
+          <span class="arrow">▶</span>
+        </div>
+        <div class="toggle-content">
+          <p>
+            La veste camouflage 'Duck Helston' est confectionnée en denim de coton épais qui a été teint en pièce pour révéler une configuration de couleurs complexe et un toucher plus doux. Non doublée, elle présente une base et des poignets ajustables et des coutures en triple point. Le Square Label en cuir artificiel est cousu sur la poitrine.
+          </p>
+          <p>
+            100 % coton (biologique, denim Maitland Camo Duck, 13.5 oz)<br>
+            Triple point<br>
+            Base et poignets ajustables<br>
+            Deux poches poitrine boutonnées<br>
+            Square Label en cuir artificiel
+          </p>
+          <p>
+            Adresse du fabricant:<br>
+            Work in Progress Textilhandels GmbH<br>
+            Hegenheimer Strasse 16<br>
+            79576 Weil am Rhein<br>
+            Allemagne<br>
+            Contact: info@carhartt-wip.com
+          </p>
+        </div>
       </div>
+
+      <!-- Bloc Tailles -->
+      <div class="sizes-section">
+        <div class="sizes-title">Tailles</div>
+        <div class="size-wrapper">
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>XS</th>
+                <th>S</th>
+                <th>M</th>
+                <th>L</th>
+                <th>XL</th>
+                <th>XXL</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+
     </div>
   </main>
   
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelector('.slides');
-    const images = slides.querySelectorAll('img');
-    let index = 0;
-    let startX = 0;
-
-    // Slider tactile
-    slides.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-    });
-
-    slides.addEventListener('touchmove', e => {
-      const moveX = e.touches[0].clientX;
-      const diff = moveX - startX;
-      slides.style.transform = `translateX(${ -index * 100 + diff / slides.clientWidth * 100 }%)`;
-    });
-
-    slides.addEventListener('touchend', e => {
-      const endX = e.changedTouches[0].clientX;
-      const diff = endX - startX;
-      if (diff < -50 && index < images.length - 1) index++;
-      if (diff > 50 && index > 0) index--;
-      slides.style.transition = 'transform 0.3s ease';
-      slides.style.transform = `translateX(-${index * 100}%)`;
-      setTimeout(() => slides.style.transition = 'none', 300);
-    });
-
-    // --- Toggle Description + Tableau ---
-    const toggle = document.querySelector('.description-toggle');
-    const descText = document.querySelectorAll('.description-text'); // ✅ tous les éléments
-    let open = false;
+    // Gestion du toggle Description
+    const toggle = document.querySelector('.toggle');
+    const content = toggle.nextElementSibling;
+    const arrow = toggle.querySelector('.arrow');
 
     toggle.addEventListener('click', () => {
-      open = !open;
-      descText.forEach(el => {
-        el.style.display = open ? 'block' : 'none';
-      });
+      const isOpen = content.style.display === 'block';
+      content.style.display = isOpen ? 'none' : 'block';
+      arrow.classList.toggle('open', !isOpen);
     });
   });
 </script>
 </body>
-</html> 
+</html>
