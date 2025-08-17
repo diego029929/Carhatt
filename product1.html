@@ -3,27 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carhartt WIP S/S Sunflower T-Shirt Air Sky</title>
+  <title>Carhartt WIP S/S Sunflower</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+
   <style>
-    /* CSS */
     :root {
-      --primary-color: #1e3a8a;  /* bleu foncé */
-      --secondary-color: #60a5fa; /* bleu clair */
+      --primary-color: #1e3a8a;
+      --secondary-color: #60a5fa;
       --bg-color: #f0f4f8;
-      --text-color: #1f2937; /* gris foncé */
+      --text-color: #1f2937;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
+      line-height: 1.7;
       padding: 20px;
     }
 
@@ -46,32 +49,291 @@
     .slides img {
       width: 100%;
       flex-shrink: 0;
+      border-radius: 20px;
     }
 
     .article-info h2 {
       font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
       color: var(--primary-color);
-      margin-bottom: 15px;
     }
 
-    .article-info p {
+    /* Header logo */
+    .site-header {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 0;
+      background: transparent;
+    }
+
+    .logo-box {
+      background: #000;
+      padding: 1.8rem 30rem;
+      border-radius: 2.2rem;
+      display: inline-block;
+      box-shadow: 0 8px 20px rgba(100, 100, 100, 0.3);
+    }
+
+    .logo-box h1 {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #fff;
+    }
+
+    /* Barre de recherche */
+    .search-section {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .search-box {
+      background: #fff;
+      padding: 0.8rem 1rem;
+      border-radius: 3rem;
+      display: flex;
+      align-items: center;
+      width: 80%;
+      max-width: 1200px;
+      box-shadow: 0 6px 15px rgba(100,100,100,0.2);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
       font-size: 1rem;
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .search-box button {
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 0.6rem 0.8rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    /* Toggle Détails */
+    .toggle {
+      font-size: 1.3rem;
+      font-weight: 500;
+      cursor: pointer;
       margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
     }
 
-    .article-info p strong {
-      color: var(--secondary-color);
+    .arrow {
+      transition: transform 0.3s ease;
+      font-size: 1.2rem;
+    }
+    .arrow.open {
+      transform: rotate(90deg);
     }
 
-    /* Responsive */
+    .toggle-content {
+      display: none;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    /* Titre élégant */
+    .sizes-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      text-align: center;
+      color: var(--primary-color);
+      letter-spacing: 1px;
+    }
+
+    /* Tableau élégant */
+    .size-wrapper {
+      overflow-x: auto;
+    }
+
+    .size-table {
+      min-width: 400px;
+      border-collapse: collapse;
+      margin: 0 auto 40px auto;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .size-table th {
+      padding: 16px;
+      text-align: center;
+      background: var(--primary-color);
+      color: white;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .size-table td {
+      padding: 14px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .size-table tr:nth-child(even) {
+      background: #f9fafb;
+    }
+
+    .size-table tr:hover td {
+      background: var(--secondary-color);
+      color: white;
+      transition: 0.3s ease;
+    }
+
     @media (max-width: 768px) {
       .article-info h2 {
         font-size: 1.6rem;
+      }
+      .sizes-title {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* Footer */
+    .site-footer {
+      margin-top: 3rem;
+      padding: 2rem 1rem;
+      background: #fff;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+      border-top: 1px solid #ddd;
+    }
+
+    .site-footer a {
+      color: #111;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 4rem;
+    }
+
+    .footer-links .col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-middle {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .footer-middle a {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .footer-bottom .languages {
+      margin-bottom: 1rem;
+    }
+
+    .footer-bottom .languages span {
+      margin-right: 1rem;
+      font-weight: 500;
+    }
+
+    .footer-bottom .languages a {
+      margin: 0 0.2rem;
+    }
+
+    .footer-bottom .legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-bottom .legal-links a {
+      font-size: 0.85rem;
+      color: #444;
+    }
+
+    .footer-bottom .legal-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom .copyright {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      .footer-top {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
+
+  <!-- Bannière logo -->
+  <header class="site-header">
+    <div class="logo-box">
+      <h1>CARHARTT</h1>
+    </div>
+  </header>
+
+  <!-- Barre de recherche -->
+  <section class="search-section">
+    <div class="search-box">
+      <input type="text" placeholder="Rechercher un produit..." />
+      <button>🔍</button>
+    </div>
+  </section>
 
   <main class="article-detail">
     <!-- Galerie d'images -->
@@ -86,44 +348,123 @@
 
     <!-- Informations sur le produit -->
     <div class="article-info">
-      <h2>Carhartt WIP S/S Sunflower T-Shirt Air Sky</h2>
-      <p><strong>Composition :</strong> 100 % coton biologique, jersey léger</p>
-      <p><strong>Coupe :</strong> Loose fit, manches courtes</p>
-      <p><strong>Détails :</strong> Imprimés graphiques devant et dos</p>
-      <p>Version estivale parfaite, en bleu pastel “Air Sky”, douce et confortable pour les journées chaudes.</p>
+      <h2>Carhartt WIP S/S Sunflower</h2>
+
+      <!-- Bloc Détails -->
+      <div class="toggle-section">
+        <div class="toggle">
+          <span>Détails</span>
+          <span class="arrow">▶</span>
+        </div>
+        <div class="toggle-content">
+          <p>
+            La veste camouflage 'Duck Helston' est confectionnée en denim de coton épais qui a été teint en pièce pour révéler une configuration de couleurs complexe et un toucher plus doux. Non doublée, elle présente une base et des poignets ajustables et des coutures en triple point. Le Square Label en cuir artificiel est cousu sur la poitrine.
+          </p>
+          <p>
+            100 % coton (biologique, denim Maitland Camo Duck, 13.5 oz)<br>
+            Triple point<br>
+            Base et poignets ajustables<br>
+            Deux poches poitrine boutonnées<br>
+            Square Label en cuir artificiel
+          </p>
+          <p>
+            Adresse du fabricant:<br>
+            Work in Progress Textilhandels GmbH<br>
+            Hegenheimer Strasse 16<br>
+            79576 Weil am Rhein<br>
+            Allemagne<br>
+            Contact: info@carhartt-wip.com
+          </p>
+        </div>
+      </div>
+
+      <!-- Bloc Tailles -->
+      <div class="sizes-section">
+        <div class="sizes-title">Tailles</div>
+        <div class="size-wrapper">
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>XS</th>
+                <th>S</th>
+                <th>M</th>
+                <th>L</th>
+                <th>XL</th>
+                <th>XXL</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+
     </div>
   </main>
 
+  <!-- Script toggle -->
   <script>
-    /* JavaScript */
-    document.addEventListener('DOMContentLoaded', () => {
-      const slides = document.querySelector('.slides');
-      const images = slides.querySelectorAll('img');
-      let index = 0;
-      let startX = 0;
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggles = document.querySelectorAll('.toggle');
+    toggles.forEach(toggle => {
+      const content = toggle.nextElementSibling;
+      const arrow = toggle.querySelector('.arrow');
 
-      slides.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-      });
-
-      slides.addEventListener('touchmove', e => {
-        const moveX = e.touches[0].clientX;
-        const diff = moveX - startX;
-        slides.style.transform = `translateX(${ -index * 100 + diff / slides.clientWidth * 100 }%)`;
-      });
-
-      slides.addEventListener('touchend', e => {
-        const endX = e.changedTouches[0].clientX;
-        const diff = endX - startX;
-        if (diff < -50 && index < images.length - 1) index++;
-        if (diff > 50 && index > 0) index--;
-        slides.style.transition = 'transform 0.3s ease';
-        slides.style.transform = `translateX(-${index * 100}%)`;
-        setTimeout(() => slides.style.transition = 'none', 300);
+      toggle.addEventListener('click', () => {
+        const isOpen = content.style.display === 'block';
+        content.style.display = isOpen ? 'none' : 'block';
+        arrow.classList.toggle('open', !isOpen);
       });
     });
+  });
   </script>
 
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-links">
+        <div class="col">
+          <a href="#">FAQ</a>
+          <a href="#">Retour</a>
+          <a href="#">Contact</a>
+          <a href="#">Carhartt WIP App</a>
+          <a href="#">Emplois</a>
+          <a href="#">Notre histoire</a>
+          <a href="#">Marques</a>
+          <a href="#">Lieu de fabrication</a>
+        </div>
+        <div class="col">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">SoundCloud</a>
+          <a href="#">YouTube</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-middle">
+      <p>
+        Pour savoir comment nous traitons vos données, consultez notre 
+        <a href="#">Politique de Confidentialité</a>.  
+        Vous pouvez vous désinscrire à tout moment sans frais.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="languages">
+        <span>France</span>
+        <a href="#">English</a> / <a href="#">Français</a>
+      </div>
+      <div class="legal-links">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Conditions générales</a>
+        <a href="#">Accessibilité</a>
+        <a href="#">GCC</a>
+        <a href="#">Gérer les cookies</a>
+      </div>
+      <p class="copyright">© 2025 Work in Progress</p>
+    </div>
+  </footer>
+
 </body>
-  </html>
-  
+</html>
