@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Carhartt</title>
-  <!-- Import Google Font Orbitron -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -25,7 +24,7 @@
     </div>
   </section>
 
-        <!-- Contenu principal -->
+  <!-- Contenu principal -->
   <main class="container stack">
     <section class="hero stack">
       <h2>Bienvenue sur Carhartt</h2>
@@ -33,19 +32,13 @@
     </section>
 
     <section class="stack">
-      <h2>Produits phares</h2>
-      <div class="grid cols-3">
+      <h2>Nos Produits</h2>
+      <div class="grid cols-3" id="product-list">
+        <!-- Produit unique : T-Shirt Sunflower -->
         <article class="card">
-          <h3>Vestes</h3>
-          <p>Vestes robustes et intemporelles.</p>
-        </article>
-        <article class="card">
-          <h3>Pantalons</h3>
-          <p>Durables et stylés pour le quotidien.</p>
-        </article>
-        <article class="card">
-          <h3>Accessoires</h3>
-          <p>Casquettes, sacs et plus encore.</p>
+          <h3><a href="product1.html">Carhartt WIP S/S Sunflower T-Shirt Air Sky</a></h3>
+          <p>Un design épuré et confortable pour les journées estivales.</p>
+          <p><strong>Prix :</strong> 99€</p>
         </article>
       </div>
     </section>
@@ -59,5 +52,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
