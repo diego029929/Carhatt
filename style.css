@@ -92,7 +92,7 @@ body {
   color: #555;
 }
 .product-image {
-  width: 50%;  /* L'image prendra toute la largeur du bloc  */
+  width: 100%;  /* L'image prendra toute la largeur du bloc  */
   height: 50px. 
   border-radius: 10px; /* Bord arrondi pour un effet plus moderne */
   object-fit: cover; /* L'image s'adapte bien à la taille sans déformer */
