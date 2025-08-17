@@ -80,8 +80,27 @@ body {
   display: grid;
   gap: 2rem;
   margin: 2rem 0;
+  
+}
+/* Styles pour le titre "Nos Produits" */
+.products-title h2 {
+  text-align: center; /* Centre le texte horizontalement */
+  font-family: 'Nunito', sans-serif; /* Police douce et arrondie (si tu veux, tu peux changer pour une autre police comme 'Roboto' ou 'Lora') */
+  font-size: 2.5rem; /* Taille de la police, ajustable */
+  font-weight: 700; /* Mettre la police en gras */
+  color: var(--primary-color); /* Couleur du texte (assurez-vous d'avoir la variable --primary-color dans votre CSS) */
+  letter-spacing: 2px; /* Espacement entre les lettres pour un effet plus aéré */
+  text-transform: uppercase; /* Met le texte en majuscules */
+  margin-top: 50px; /* Espacement au-dessus du titre */
+  margin-bottom: 30px; /* Espacement en dessous du titre */
+  border-bottom: 3px solid var(--secondary-color); /* Ajoute une ligne en bas du titre avec une couleur secondaire */
+  padding-bottom: 10px; /* Ajoute un peu de marge sous la ligne */
 }
 
+/* Exemple de police douce depuis Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+}
 /* === Hero === */
 .hero {
   text-align: center;
