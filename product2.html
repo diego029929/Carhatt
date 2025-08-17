@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duck Helston Jacket</title>
+  <style>
+    :root {
+      --primary-color: #1e3a8a;
+      --secondary-color: #60a5fa;
+      --bg-color: #f0f4f8;
+      --text-color: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .article-detail {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .gallery {
+      overflow: hidden;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .slides img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .article-info h2 {
+      font-size: 2rem;
+      color: black;
+      margin-bottom: 15px;
+    }
+
+    .description-toggle {
+      font-size: 1.2rem;
+      color: black;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .description-text {
+      display: none;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .article-info h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="article-detail">
+    <!-- Galerie d'images -->
+    <div class="gallery">
+      <div class="slides">
+        <img src="image5.jpg" alt="T-Shirt Sunflower vue avant">
+        <img src="image6.jpg" alt="T-Shirt Sunflower vue dos">
+      </div>
+    </div>
+
+    <!-- Informations sur le produit -->
+    <div class="article-info">
+      <h2>Duck Helston Jacket Sky</h2>
+
+      <div class="description-section">
+        <div class="description-toggle">Description</div>
+        <p class="description-text">
+          La veste camouflage 'Duck Helston' est confectionnée en denim de coton épais qui a été teint en pièce pour révéler une configuration de couleurs complexe et un toucher plus doux. Non doublée, elle présente une base et des poignets ajustables et des coutures en triple point. Le Square Label en cuir artificiel est cousu sur la poitrine.
+100 % coton (biologique, denim Maitland Camo Duck, 13.5 oz)
+Triple point
+Base et poignets ajustables
+Deux poches poitrine boutonnées
+Square Label en cuir artificiel
+Adresse du fabricant:
+Work in Progress Textilhandels GmbH
+Hegenheimer Strasse 16
+79576 Weil am Rhein
+Allemagne
+Contact: info@carhartt-wip.com
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Slider (déjà existant)
+    document.addEventListener('DOMContentLoaded', () => {
+      const slides = document.querySelector('.slides');
+      const images = slides.querySelectorAll('img');
+      let index = 0;
+      let startX = 0;
+
+      slides.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+      });
+
+      slides.addEventListener('touchmove', e => {
+        const moveX = e.touches[0].clientX;
+        const diff = moveX - startX;
+        slides.style.transform = `translateX(${ -index * 100 + diff / slides.clientWidth * 100 }%)`;
+      });
+
+      slides.addEventListener('touchend', e => {
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - startX;
+        if (diff < -50 && index < images.length - 1) index++;
+        if (diff > 50 && index > 0) index--;
+        slides.style.transition = 'transform 0.3s ease';
+        slides.style.transform = `translateX(-${index * 100}%)`;
+        setTimeout(() => slides.style.transition = 'none', 300);
+      });
+
+      // Description toggle
+      const toggle = document.querySelector('.description-toggle');
+      const descText = document.querySelector('.description-text');
+      
+      toggle.addEventListener('click', () => {
+        descText.style.display = descText.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
+
+</body>
+</html>
