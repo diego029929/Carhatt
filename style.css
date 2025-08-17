@@ -71,17 +71,6 @@ body {
   font-size: 1.1rem;
 }
 
-/* === Layout général === */
-.container {
-  width: min(100% - 2rem, 1100px);
-  margin-inline: auto;
-}
-.stack {
-  display: grid;
-  gap: 2rem;
-  margin: 2rem 0;
-  
-}
 /* Styles pour le titre "Nos Produits" */
 .products-title h2 {
   text-align: center; /* Centre le texte horizontalement */
@@ -97,9 +86,15 @@ body {
   padding-bottom: 10px; /* Ajoute un peu de marge sous la ligne */
 }
 
-/* Exemple de police douce depuis Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
-
+/* === Layout général === */
+.container {
+  width: min(100% - 2rem, 1100px);
+  margin-inline: auto;
+}
+.stack {
+  display: grid;
+  gap: 2rem;
+  margin: 2rem 0;
 }
 /* === Hero === */
 .hero {
