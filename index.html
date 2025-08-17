@@ -6,6 +6,32 @@
   <title>Carhartt</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Ajout rapide pour le panier */
+    .cart {
+      position: relative;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+    }
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #000;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
 
@@ -13,6 +39,11 @@
   <header class="site-header">
     <div class="logo-box">
       <h1>CARHARTT</h1>
+    </div>
+    <!-- Panier -->
+    <div class="cart">
+      🛒
+      <span class="cart-count" id="cart-count">0</span>
     </div>
   </header>
 
@@ -36,6 +67,7 @@
         <h3><a href="product1.html">Carhartt WIP S/S Sunflower T-Shirt Air Sky</a></h3>
         <p>Un design épuré et confortable pour les journées estivales.</p>
         <p><strong>Prix :</strong> 99€</p>
+        <button onclick="addToCart()">Ajouter au panier</button>
       </article>
 
       <!-- Produit 2 -->
@@ -43,6 +75,7 @@
         <img src="image5.jpg" alt="Duck Helston Jacket">
         <h3><a href="product2.html">Duck Helston Jacket</a></h3>
         <p><strong>Prix :</strong> 219€</p>
+        <button onclick="addToCart()">Ajouter au panier</button>
       </article>
 
       <!-- Produit 3 -->
@@ -50,18 +83,74 @@
         <img src="image7.jpg" alt="L/S Lucas Shirt">
         <h3><a href="product3.html">L/S Lucas Shirt</a></h3>
         <p><strong>Prix :</strong> 99€</p>
+        <button onclick="addToCart()">Ajouter au panier</button>
       </article>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© <span id="year"></span> Carhartt. Tous droits réservés.</p>
+  <!-- Footer complet -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-links">
+        <div class="col">
+          <a href="#">FAQ</a>
+          <a href="#">Retour</a>
+          <a href="#">Contact</a>
+          <a href="#">Carhartt WIP App</a>
+          <a href="#">Emplois</a>
+          <a href="#">Notre histoire</a>
+          <a href="#">Marques</a>
+          <a href="#">Lieu de fabrication</a>
+        </div>
+        <div class="col">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">SoundCloud</a>
+          <a href="#">YouTube</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-middle">
+      <p>
+        Pour savoir comment nous traitons vos données, consultez notre 
+        <a href="#">Politique de Confidentialité</a>.  
+        Vous pouvez vous désinscrire à tout moment sans frais.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="languages">
+        <span>France</span>
+        <a href="#">English</a> / <a href="#">Français</a>
+      </div>
+      <div class="legal-links">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Conditions générales</a>
+        <a href="#">Accessibilité</a>
+        <a href="#">GCC</a>
+        <a href="#">Gérer les cookies</a>
+      </div>
+      <p class="copyright">© <span id="year"></span> Work in Progress</p>
+    </div>
   </footer>
 
   <script>
+    // Année dynamique
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Panier
+    let cartCount = 0;
+    function addToCart() {
+      cartCount++;
+      document.getElementById('cart-count').textContent = cartCount;
+    }
   </script>
+
+</body>
+</html>
 
 </body>
 </html>
