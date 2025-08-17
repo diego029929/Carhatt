@@ -192,9 +192,12 @@ Contact: info@carhartt-wip.com
       // Description toggle
       const toggle = document.querySelector('.description-toggle');
       const descText = document.querySelector('.description-text');
+      const arrow = document.querySelector('.arrow');  
       
-      toggle.addEventListener('click', () => {
-        descText.style.display = descText.style.display === 'block' ? 'none' : 'block';
+      descText.forEach(el => {
+          el.style.display = el.style.display === 'block' ? 'none' : 'block';
+        });
+        arrow.classList.toggle('open');
       });
     });
   </script>
