@@ -64,12 +64,22 @@
       display: none;
       font-size: 1rem;
     }
-
+/* Tableau des tailles */
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+      
     @media (max-width: 768px) {
       .article-info h2 {
         font-size: 1.6rem;
       }
-    }
+      
   </style>
 </head>
 <body>
@@ -103,10 +113,54 @@ Hegenheimer Strasse 16
 Allemagne
 Contact: info@carhartt-wip.com
         </p>
+
+       <!-- Tableau des tailles -->
+        <table class="size-table description-text">
+          <thead>
+            <tr>
+              <th>TAILLE</th>
+              <th>XS</th>
+              <th>S</th>
+              <th>M</th>
+              <th>L</th>
+              <th>XL</th>
+              <th>XXL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tour de poitrine (cm)</td>
+              <td>82-86</td>
+              <td>87-92</td>
+              <td>93-98</td>
+              <td>99-104</td>
+              <td>105-110</td>
+              <td>111-118</td>
+            </tr>
+            <tr>
+              <td>Tour de taille (cm)</td>
+              <td>70-74</td>
+              <td>75-80</td>
+              <td>81-86</td>
+              <td>87-92</td>
+              <td>93-98</td>
+              <td>99-106</td>
+            </tr>
+            <tr>
+              <td>Longueur de manche (cm)</td>
+              <td>60</td>
+              <td>61</td>
+              <td>62</td>
+              <td>63</td>
+              <td>64</td>
+              <td>65</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </main>
-
+  
   <script>
     // Slider (déjà existant)
     document.addEventListener('DOMContentLoaded', () => {
