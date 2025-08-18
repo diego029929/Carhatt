@@ -115,7 +115,7 @@
   <!-- Header -->
   <header class="site-header">
     <div class="logo-box"><h1>CARHARTT</h1></div>
-    <a href="panier.html" class="cart-icon">🛒</a>
+    <a href="cart.html" class="cart-icon">🛒</a>
   </header>
 
   <!-- Produit -->
@@ -131,7 +131,7 @@
     <!-- Infos -->
     <div class="article-info">
       <h2>Duck Helston Jacket Sky</h2>
-      <a href="panier.html" class="add-to-cart"><span>🛒</span> Ajouter au panier</a>
+      <a href="cart.html" class="add-to-cart"><span>🛒</span> Ajouter au panier</a>
 
       <!-- Détails -->
       <div class="toggle-section">
@@ -141,7 +141,7 @@
         </div>
         <div class="toggle-content">
           <p>
-            La veste camouflage "Duck Helston" est confectionnée en denim de coton épais, teint en pièce pour une couleur unique et un toucher plus doux. 
+            La veste camouflage "Duck Helston" est confectionnée en denim de coton épais, teint en pièce pour une couleur unique et un toucher plus doux. 
             Elle est non doublée, avec base et poignets ajustables et coutures en triple point.
           </p>
           <p>
@@ -202,67 +202,5 @@
         if (!isDragging) return;
         isDragging = false;
         const dx = e.changedTouches[0].clientX - startX;
-        const threshold = 50;
-        if (dx < -threshold && index < images.length - 1) index++;
-        if (dx > threshold && index > 0) index--;
-        slides.style.transition = 'transform 0.3s ease';
-        setTranslate();
-      });
-
-      const toggles = document.querySelectorAll('.toggle');
-      toggles.forEach(toggle => {
-        const content = toggle.nextElementSibling;
-        const arrow = toggle.querySelector('.arrow');
-        toggle.addEventListener('click', () => {
-          const isOpen = content.style.display === 'block';
-          content.style.display = isOpen ? 'none' : 'block';
-          arrow.classList.toggle('open', !isOpen);
-        });
-      });
-    });
-  </script>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-top">
-      <div class="footer-links">
-        <div class="col">
-          <a href="#">FAQ</a>
-          <a href="#">Retour</a>
-          <a href="#">Contact</a>
-          <a href="#">Carhartt WIP App</a>
-          <a href="#">Emplois</a>
-          <a href="#">Notre histoire</a>
-        </div>
-        <div class="col">
-          <a href="#">Instagram</a>
-          <a href="#">Facebook</a>
-          <a href="#">SoundCloud</a>
-          <a href="#">YouTube</a>
-          <a href="#">Pinterest</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-middle">
-      <p>
-        Pour savoir comment nous traitons vos données, consultez notre
-        <a href="#">Politique de Confidentialité</a>.
-      </p>
-    </div>
-    <div class="footer-bottom">
-      <div class="languages">
-        <span>France</span>
-        <a href="#">English</a> / <a href="#">Français</a>
-      </div>
-      <div class="legal-links">
-        <a href="#">Mentions légales</a>
-        <a href="#">Conditions générales</a>
-        <a href="#">Accessibilité</a>
-        <a href="#">Cookies</a>
-      </div>
-      <p class="copyright">© 2025 Work in Progress</p>
-    </div>
-  </footer>
-</body>
-    </html>
-  
+        const threshold
+          
