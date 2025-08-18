@@ -7,132 +7,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    /* Bannière logo */
-    .site-header {
-      text-align: center;
-      padding: 2rem 0;
-      background: #000;
-      color: #fff;
-    }
-
-    .logo-box h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.5rem;
-      margin: 0;
-    }
-
-    /* Panier fixé en haut à droite */
-    .cart {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1000;
-    }
-    .cart-count {
-      position: absolute;
-      top: -8px;
-      right: -10px;
-      background: red;
-      color: white;
-      border-radius: 50%;
-      font-size: 0.75rem;
-      padding: 2px 6px;
-    }
-
-    /* Boutons Ajouter au panier */
-    .add-to-cart {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #000;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-      font-weight: 600;
-    }
-    .add-to-cart:hover {
-      background: #333;
-    }
-    .add-to-cart span {
-      font-size: 1.2rem;
-    }
-
-    /* Recherche */
-    .search-section {
-      padding: 1rem;
-      text-align: center;
-    }
-    .search-box input {
-      padding: 8px;
-      width: 60%;
-      max-width: 300px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-    .search-box button {
-      padding: 8px 12px;
-      border: none;
-      background: #000;
-      color: #fff;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .search-box button:hover {
-      background: #333;
-    }
-
-    /* Grid produits */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      padding: 2rem;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .card h3 {
-      margin: 0.5rem 0;
-    }
-    .card p {
-      margin: 0.3rem 0;
-    }
-
-    /* Footer */
-    .site-footer {
-      background: #111;
-      color: #fff;
-      padding: 2rem;
-      font-size: 0.9rem;
-    }
-    .site-footer a {
-      color: #fff;
-      text-decoration: none;
-      display: block;
-      margin: 0.2rem 0;
-    }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-      border-top: 1px solid #333;
-      padding-top: 1rem;
-    }
-    .languages span, .languages a {
-      margin-right: 8px;
-    }
+    body { margin: 0; font-family: 'Poppins', sans-serif; }
+    .site-header { text-align: center; padding: 2rem 0; background: #000; color: #fff; }
+    .logo-box h1 { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin: 0; }
+    .cart { position: fixed; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; z-index: 1000; }
+    .cart-count { position: absolute; top: -8px; right: -10px; background: red; color: white; border-radius: 50%; font-size: 0.75rem; padding: 2px 6px; }
+    .add-to-cart { display: inline-flex; align-items: center; gap: 8px; background: #000; color: #fff; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; transition: background 0.3s; font-weight: 600; }
+    .add-to-cart:hover { background: #333; }
+    .add-to-cart span { font-size: 1.2rem; }
+    .search-section { padding: 1rem; text-align: center; }
+    .search-box input { padding: 8px; width: 60%; max-width: 300px; border-radius: 4px; border: 1px solid #ccc; }
+    .search-box button { padding: 8px 12px; border: none; background: #000; color: #fff; border-radius: 4px; cursor: pointer; }
+    .search-box button:hover { background: #333; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 2rem; }
+    .card img { width: 100%; border-radius: 8px; }
+    .card h3 { margin: 0.5rem 0; }
+    .card p { margin: 0.3rem 0; }
+    .site-footer { background: #111; color: #fff; padding: 2rem; font-size: 0.9rem; }
+    .site-footer a { color: #fff; text-decoration: none; display: block; margin: 0.2rem 0; }
+    .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 1rem; border-top: 1px solid #333; padding-top: 1rem; }
+    .languages span, .languages a { margin-right: 8px; }
   </style>
 </head>
 <body>
@@ -145,7 +39,7 @@
   </header>
 
   <!-- Panier -->
-  <div class="cart">
+  <div class="cart" onclick="goToCart()">
     🛒
     <span class="cart-count" id="cart-count">0</span>
   </div>
@@ -165,32 +59,32 @@
     </div>
     <div class="grid">
       <!-- Produit 1 -->
-      <article class="card">
+      <article class="card" data-name="Carhartt WIP S/S Sunflower T-Shirt Air Sky" data-price="99" data-image="image1.jpg">
         <img src="image1.jpg" alt="Carhartt WIP T-Shirt Sunflower">
         <h3><a href="product1.html">Carhartt WIP S/S Sunflower T-Shirt Air Sky</a></h3>
         <p>Un design épuré et confortable pour les journées estivales.</p>
         <p><strong>Prix :</strong> 99€</p>
-        <button class="add-to-cart" onclick="addToCart()">
+        <button class="add-to-cart" onclick="addToCart(this)">
           <span>🛒</span> Ajouter au panier
         </button>
       </article>
 
       <!-- Produit 2 -->
-      <article class="card">
+      <article class="card" data-name="Duck Helston Jacket" data-price="219" data-image="image5.jpg">
         <img src="image5.jpg" alt="Duck Helston Jacket">
         <h3><a href="product2.html">Duck Helston Jacket</a></h3>
         <p><strong>Prix :</strong> 219€</p>
-        <button class="add-to-cart" onclick="addToCart()">
+        <button class="add-to-cart" onclick="addToCart(this)">
           <span>🛒</span> Ajouter au panier
         </button>
       </article>
 
       <!-- Produit 3 -->
-      <article class="card">
+      <article class="card" data-name="L/S Lucas Shirt" data-price="99" data-image="image7.jpg">
         <img src="image7.jpg" alt="L/S Lucas Shirt">
         <h3><a href="product3.html">L/S Lucas Shirt</a></h3>
         <p><strong>Prix :</strong> 99€</p>
-        <button class="add-to-cart" onclick="addToCart()">
+        <button class="add-to-cart" onclick="addToCart(this)">
           <span>🛒</span> Ajouter au panier
         </button>
       </article>
@@ -250,14 +144,34 @@
     // Année dynamique
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Panier
-    let cartCount = 0;
-    function addToCart() {
-      cartCount++;
-      document.getElementById('cart-count').textContent = cartCount;
+    // Gestion du panier
+    function addToCart(button) {
+      const card = button.closest('.card');
+      const product = {
+        name: card.dataset.name,
+        price: card.dataset.price,
+        image: card.dataset.image
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      document.getElementById('cart-count').textContent = cart.length;
     }
+
+    // Aller à la page panier
+    function goToCart() {
+      window.location.href = "cart.html";
+    }
+
+    // Charger le nombre d'articles au chargement
+    document.addEventListener('DOMContentLoaded', () => {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.getElementById('cart-count').textContent = cart.length;
+    });
   </script>
 
 </body>
-                 </html>
-        
+             </html>
+          
