@@ -17,16 +17,25 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-    body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; padding: 20px; }
-    .article-detail { max-width: 900px; margin: 0 auto; }
+    body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; padding: 0; }
+
+    /* ====== HEADER ====== */
+    .site-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #000; }
+    .logo-box h1 {
+      margin: 0; font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.12em; color: #fff;
+    }
+    .cart-icon {
+      font-size: 1.8rem; color: #fff; cursor: pointer; text-decoration: none;
+    }
 
     /* ====== SLIDER ====== */
-    .gallery { overflow: hidden; border-radius: 20px; margin-bottom: 30px; position: relative; }
+    .gallery { overflow: hidden; border-radius: 20px; margin: 20px auto; position: relative; max-width: 900px; }
     .slides {
       display: flex;
       transition: transform 0.3s ease;
       will-change: transform;
-      touch-action: pan-y; /* permet le scroll vertical, swipe horizontal ok */
+      touch-action: pan-y;
     }
     .slides img {
       flex: 0 0 100%;
@@ -34,39 +43,25 @@
       border-radius: 20px;
       user-select: none;
       -webkit-user-drag: none;
-      pointer-events: none; /* évite que l'image capte le drag */
+      pointer-events: none;
     }
 
-    /* ====== TITRE PRODUIT ====== */
-    .article-info h2 {
-      font-size: 2rem; font-weight: 600; margin-bottom: 20px; color: var(--primary-color);
-    }
+    /* ====== INFOS PRODUIT ====== */
+    .article-detail { max-width: 900px; margin: 0 auto; padding: 20px; }
+    .article-info h2 { font-size: 2rem; font-weight: 600; margin-bottom: 20px; color: var(--primary-color); }
 
-    /* ====== HEADER LOGO ====== */
-    .site-header { display: flex; justify-content: center; padding: 2rem 0; background: transparent; }
-    .logo-box {
-      background: #000; padding: 1.5rem 4rem; border-radius: 2.2rem; display: inline-block;
-      box-shadow: 0 8px 20px rgba(100, 100, 100, 0.3);
+    /* ====== BOUTON AJOUTER ====== */
+    .add-to-cart {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #000; color: #fff; font-size: 1rem; font-weight: 600;
+      padding: 12px 20px; border-radius: 40px; cursor: pointer; text-decoration: none;
+      transition: 0.3s ease; margin-top: 15px;
     }
-    .logo-box h1 {
-      margin: 0; font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900;
-      text-transform: uppercase; letter-spacing: 0.12em; color: #fff;
-    }
-
-    /* ====== BARRE DE RECHERCHE ====== */
-    .search-section { display: flex; justify-content: center; margin-top: 2rem; }
-    .search-box {
-      background: #fff; padding: 0.8rem 1rem; border-radius: 3rem; display: flex; align-items: center;
-      width: 80%; max-width: 1200px; box-shadow: 0 6px 15px rgba(100,100,100,0.2);
-    }
-    .search-box input { flex: 1; border: none; outline: none; font-size: 1rem; border-radius: 2rem; padding: 0.5rem 1rem; }
-    .search-box button {
-      background: #000; color: #fff; border: none; border-radius: 50%; padding: 0.6rem 0.8rem;
-      margin-left: 0.5rem; cursor: pointer; font-size: 1.1rem;
-    }
+    .add-to-cart:hover { background: var(--primary-color); }
+    .add-to-cart span { font-size: 1.2rem; }
 
     /* ====== TOGGLE DETAILS ====== */
-    .toggle { font-size: 1.3rem; font-weight: 500; cursor: pointer; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; user-select: none; }
+    .toggle { font-size: 1.3rem; font-weight: 500; cursor: pointer; margin: 20px 0 10px 0; display: flex; align-items: center; gap: 10px; user-select: none; }
     .arrow { transition: transform 0.3s ease; font-size: 1.2rem; }
     .arrow.open { transform: rotate(90deg); }
     .toggle-content { display: none; font-size: 1rem; margin-bottom: 30px; }
@@ -107,8 +102,7 @@
     .footer-bottom .copyright { margin-top: 1rem; font-size: 0.8rem; color: #888; }
 
     @media (max-width: 768px) {
-      .logo-box { padding: 1.2rem 2rem; }
-      .logo-box h1 { font-size: 2rem; }
+      .logo-box h1 { font-size: 1.5rem; }
       .article-info h2 { font-size: 1.6rem; }
       .sizes-title { font-size: 1.3rem; }
       .footer-top { flex-direction: column; align-items: center; }
@@ -118,33 +112,28 @@
 </head>
 <body>
 
-  <!-- Bannière logo -->
+  <!-- Header -->
   <header class="site-header">
     <div class="logo-box"><h1>CARHARTT</h1></div>
+    <a href="panier.html" class="cart-icon">🛒</a>
   </header>
 
-  <!-- Barre de recherche -->
-  <section class="search-section">
-    <div class="search-box">
-      <input type="text" placeholder="Rechercher un produit..." />
-      <button>🔍</button>
-    </div>
-  </section>
-
+  <!-- Produit -->
   <main class="article-detail">
-    <!-- Galerie d'images -->
+    <!-- Galerie -->
     <div class="gallery">
       <div class="slides">
-        <img src="image5.jpg" alt="T-Shirt Sunflower vue avant" draggable="false" />
-        <img src="image6.jpg" alt="T-Shirt Sunflower vue dos" draggable="false" />
+        <img src="image5.jpg" alt="Veste Duck Helston vue avant" draggable="false" />
+        <img src="image6.jpg" alt="Veste Duck Helston vue dos" draggable="false" />
       </div>
     </div>
 
-    <!-- Informations sur le produit -->
+    <!-- Infos -->
     <div class="article-info">
       <h2>Duck Helston Jacket Sky</h2>
+      <a href="panier.html" class="add-to-cart"><span>🛒</span> Ajouter au panier</a>
 
-      <!-- Bloc Détails -->
+      <!-- Détails -->
       <div class="toggle-section">
         <div class="toggle">
           <span>Détails</span>
@@ -152,27 +141,20 @@
         </div>
         <div class="toggle-content">
           <p>
-            La veste camouflage 'Duck Helston' est confectionnée en denim de coton épais qui a été teint en pièce pour révéler une configuration de couleurs complexe et un toucher plus doux. Non doublée, elle présente une base et des poignets ajustables et des coutures en triple point. Le Square Label en cuir artificiel est cousu sur la poitrine.
+            La veste camouflage "Duck Helston" est confectionnée en denim de coton épais, teint en pièce pour une couleur unique et un toucher plus doux. 
+            Elle est non doublée, avec base et poignets ajustables et coutures en triple point.
           </p>
           <p>
-            100 % coton (biologique, denim Maitland Camo Duck, 13.5 oz)<br>
-            Triple point<br>
-            Base et poignets ajustables<br>
-            Deux poches poitrine boutonnées<br>
-            Square Label en cuir artificiel
-          </p>
-          <p>
-            Adresse du fabricant:<br>
-            Work in Progress Textilhandels GmbH<br>
-            Hegenheimer Strasse 16<br>
-            79576 Weil am Rhein<br>
-            Allemagne<br>
-            Contact: info@carhartt-wip.com
+            ✔ 100 % coton biologique (denim Maitland Camo Duck, 13.5 oz)<br>
+            ✔ Triple point<br>
+            ✔ Base et poignets ajustables<br>
+            ✔ Deux poches poitrine boutonnées<br>
+            ✔ Square Label en cuir artificiel
           </p>
         </div>
       </div>
 
-      <!-- Bloc Tailles -->
+      <!-- Tailles -->
       <div class="sizes-section">
         <div class="sizes-title">Tailles</div>
         <div class="size-wrapper">
@@ -188,30 +170,22 @@
           </table>
         </div>
       </div>
-
     </div>
   </main>
 
-  <!-- Script slider (swipe only) + toggle -->
+  <!-- Script slider et toggle -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // ===== Slider tactile (pas d'autoplay)
       const slides = document.querySelector('.slides');
       const images = document.querySelectorAll('.slides img');
       let index = 0;
+      let startX = 0, currentX = 0, isDragging = false;
 
-      let startX = 0;
-      let currentX = 0;
-      let isDragging = false;
-
-      const setTranslate = () => {
-        slides.style.transform = `translateX(-${index * 100}%)`;
-      };
+      const setTranslate = () => { slides.style.transform = `translateX(-${index * 100}%)`; };
       setTranslate();
 
-      // Touch events
       slides.addEventListener('touchstart', (e) => {
-        if (!e.touches || !e.touches[0]) return;
+        if (!e.touches[0]) return;
         isDragging = true;
         startX = e.touches[0].clientX;
         slides.style.transition = 'none';
@@ -228,37 +202,13 @@
         if (!isDragging) return;
         isDragging = false;
         const dx = e.changedTouches[0].clientX - startX;
-        const threshold = 50; // px
-        if (dx < -threshold && index < images.length - 1) index++;
-        if (dx >  threshold && index > 0) index--;
-        slides.style.transition = 'transform 0.3s ease';
-        setTranslate();
-      });
-
-      // (Optionnel) support souris sans autoplay — n'affecte pas mobile
-      let isMouseDown = false, startMouseX = 0;
-      slides.addEventListener('mousedown', (e) => {
-        isMouseDown = true;
-        startMouseX = e.clientX;
-        slides.style.transition = 'none';
-      });
-      window.addEventListener('mousemove', (e) => {
-        if (!isMouseDown) return;
-        const dx = e.clientX - startMouseX;
-        slides.style.transform = `translateX(calc(-${index * 100}% + ${dx}px))`;
-      });
-      window.addEventListener('mouseup', (e) => {
-        if (!isMouseDown) return;
-        isMouseDown = false;
-        const dx = e.clientX - startMouseX;
         const threshold = 50;
         if (dx < -threshold && index < images.length - 1) index++;
-        if (dx >  threshold && index > 0) index--;
+        if (dx > threshold && index > 0) index--;
         slides.style.transition = 'transform 0.3s ease';
         setTranslate();
       });
 
-      // ===== Toggle détails
       const toggles = document.querySelectorAll('.toggle');
       toggles.forEach(toggle => {
         const content = toggle.nextElementSibling;
@@ -283,8 +233,6 @@
           <a href="#">Carhartt WIP App</a>
           <a href="#">Emplois</a>
           <a href="#">Notre histoire</a>
-          <a href="#">Marques</a>
-          <a href="#">Lieu de fabrication</a>
         </div>
         <div class="col">
           <a href="#">Instagram</a>
@@ -295,15 +243,12 @@
         </div>
       </div>
     </div>
-
     <div class="footer-middle">
       <p>
         Pour savoir comment nous traitons vos données, consultez notre
-        <a href="#">Politique de Confidentialité</a>.  
-        Vous pouvez vous désinscrire à tout moment sans frais.
+        <a href="#">Politique de Confidentialité</a>.
       </p>
     </div>
-
     <div class="footer-bottom">
       <div class="languages">
         <span>France</span>
@@ -311,16 +256,13 @@
       </div>
       <div class="legal-links">
         <a href="#">Mentions légales</a>
-        <a href="#">Confidentialité</a>
         <a href="#">Conditions générales</a>
         <a href="#">Accessibilité</a>
-        <a href="#">GCC</a>
-        <a href="#">Gérer les cookies</a>
+        <a href="#">Cookies</a>
       </div>
       <p class="copyright">© 2025 Work in Progress</p>
     </div>
   </footer>
-
 </body>
-  </html>
+    </html>
   
