@@ -173,9 +173,47 @@
     </div>
   </main>
 
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-links">
+        <div class="col">
+          <a href="#">Accueil</a>
+          <a href="#">Nouveautés</a>
+          <a href="#">Homme</a>
+          <a href="#">Femme</a>
+        </div>
+        <div class="col">
+          <a href="#">Collection</a>
+          <a href="#">Lookbook</a>
+          <a href="#">Promotions</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-middle">
+      Pour plus d'informations, contactez-nous par email à <a href="mailto:info@carhartt.com">info@carhartt.com</a> ou par téléphone.
+    </div>
+    <div class="footer-bottom">
+      <div class="languages">
+        <span>Langues:</span>
+        <a href="#">FR</a> | <a href="#">EN</a> | <a href="#">DE</a>
+      </div>
+      <div class="legal-links">
+        <a href="#">Mentions légales</a>
+        <a href="#">CGV</a>
+        <a href="#">Politique de confidentialité</a>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Carhartt. Tous droits réservés.
+      </div>
+    </div>
+  </footer>
+
   <!-- Script slider et toggle -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Slider tactile
       const slides = document.querySelector('.slides');
       const images = document.querySelectorAll('.slides img');
       let index = 0;
@@ -202,5 +240,22 @@
         if (!isDragging) return;
         isDragging = false;
         const dx = e.changedTouches[0].clientX - startX;
-        const threshold
-          
+        if(dx < -50 && index < images.length -1) index++;
+        else if(dx > 50 && index > 0) index--;
+        slides.style.transition = 'transform 0.3s ease';
+        setTranslate();
+      });
+
+      // Toggle détails
+      const toggle = document.querySelector('.toggle');
+      const content = document.querySelector('.toggle-content');
+      const arrow = document.querySelector('.arrow');
+      toggle.addEventListener('click', () => {
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        arrow.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+        </html>
+  
